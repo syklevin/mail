@@ -9,13 +9,13 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
+	"net/smtp"
 	"strings"
 	"unicode/utf16"
 
-	"golang.org/x/net/smtp"
-
-	"github.com/ThomsonReutersEikon/go-ntlm/ntlm"
 	"golang.org/x/crypto/md4"
+
+	"github.com/git-lfs/go-ntlm/ntlm"
 )
 
 const (

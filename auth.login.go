@@ -2,7 +2,7 @@ package mail
 
 import (
 	"errors"
-	"golang.org/x/net/smtp"
+	"net/smtp"
 	"strings"
 )
 

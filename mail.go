@@ -11,14 +11,13 @@ import (
 	"mime"
 	"mime/multipart"
 	"net/mail"
+	"net/smtp"
 	"net/textproto"
 	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"sync"
-
-	"golang.org/x/net/smtp"
 )
 
 const (
@@ -226,9 +225,7 @@ func (e *Email) Send() error {
 	if err != nil {
 		return err
 	}
-	if e.Secure == `ssl` {
-		return smtp.SendMailUsingSSL(e.Host+":"+strconv.Itoa(e.Port), e.Auth, from.Address, to, raw)
-	}
+
 	return smtp.SendMail(e.Host+":"+strconv.Itoa(e.Port), e.Auth, from.Address, to, raw)
 }
 
